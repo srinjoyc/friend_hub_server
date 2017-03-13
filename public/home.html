@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>391- Module 2 </title>
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/assets/home.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="assests/home.css" rel="stylesheet">
+</head>
+<style>
+#header{
+  background-color: #d4d8d4;
+  margin: 0 auto;
+}
+#header-text{
+  text-align: center;
+  padding: 20px;
+}
+.sub-headings{
+  font-style: italic;
+  font-weight: lighter;
+}
+.card-header-text{
+  font-style: bold;
+  text-align: center;
+}
+
+
+</style>
+<body>
+  <div class="container-fluid" id="header">
+    <div class="col-xs-12">
+      <h1 id="header-text">Friend Hub API</h1>
+    </div>
+  </div>
+  <section class="model"> 
+    <div class="container">
+    <blockquote class="blockquote ">
+      <h2 class="sub-headings">Users</h2>
+    </blockquote>
+      <div class="card">
+        <div class="card-header card-header-text">
+          Fields
+        </div>
+        <div class="card-block user">
+          <p class="card-text"><pre id="user-json"></pre></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header card-header-text">
+          Routes
+        </div>
+        <div class="card-block user">
+          <p class="card-text"><pre id="user-routes"></pre></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header card-header-text">
+          Examples
+        </div>
+        <div class="card-block user">
+          <p class="card-text">
+            <p class="lead" > Get all users in the database</p>
+            <pre> # GET /users <br> # curl -i -H "Accept: application/json" -H "Content-Type: application/json" localhost:3000/users</pre>
+            <p class="lead" > Create a new user in the database</p>
+            <pre> # POST /users<br> # curl -H "Content-Type: application/@gmail.com","password":"123456", "bio": "example bio"}' http://localhost:3000/users
+            </pre>
+            <p class="lead" >Update a specific user with fields (incl only fields in the post, not all).</p>
+            <pre> # PATCH/PUT /users/1<br> # curl -H "Accept: application/json" -H "Content-Type: application/json" -X PATCH -d '{"bio": "I'm updating the bio field only."}' http://localhost:3000/users/1
+            </pre>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="model"> 
+    <div class="container">
+    <blockquote class="blockquote ">
+      <h2 class="sub-headings">Hubs</h2>
+    </blockquote>
+      <div class="card">
+        <div class="card-header card-header-text">
+          Fields
+        </div>
+        <div class="card-block hub">
+          <p class="card-text"><pre id="hub-json"></pre></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header card-header-text">
+          Routes
+        </div>
+        <div class="card-block hub">
+          <p class="card-text"><pre id="hub-routes"></pre></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
