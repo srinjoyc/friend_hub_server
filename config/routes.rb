@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :personalities
   resources :hubs
   resources :users
+
+  get '/match' => 'personalities#match'
 
   post '/login' => 'auth#login'
   root to: 'static#home'
