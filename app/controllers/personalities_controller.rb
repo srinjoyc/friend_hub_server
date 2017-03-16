@@ -1,6 +1,7 @@
 class PersonalitiesController < ApplicationController
-  before_action :set_personality, only: [:show, :update, :destroy]
+  before_action :set_personality, only: [:update, :destroy]
 
+#Personality.create({user_id: 1, attr_a: 1.1, attr_b: 1.2, attr_c: 1.3, attr_d: 1.4, attr_e: 1.5})
   # GET /personalities
   def index
     @personalities = Personality.all
@@ -10,6 +11,7 @@ class PersonalitiesController < ApplicationController
 
   # GET /personalities/1
   def show
+    @personality = Personality.where(user_id: params[:id]).last
     render json: @personality
   end
 
