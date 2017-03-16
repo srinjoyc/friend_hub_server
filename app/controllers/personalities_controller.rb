@@ -11,7 +11,7 @@ class PersonalitiesController < ApplicationController
 
   # GET /personalities/1
   def show
-    @personality = Personality.where(user_id: params[:id]).first
+    @personality = Personality.where(id: params[:id]).last
     render json: @personality
   end
 
