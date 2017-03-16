@@ -11,7 +11,7 @@ class PersonalitiesController < ApplicationController
 
   # GET /personalities/1
   def show
-    @personality = Personality.where(user_id: params[:id]).last
+    @personality = Personality.where(user_id: params[:id]).first
     render json: @personality
   end
 
@@ -41,10 +41,9 @@ class PersonalitiesController < ApplicationController
   end
 
   def match
-    a = params[:user_id_one]
-    b = params[:user_id_two]
+    a = params[:user_id]
     user_one = User.find(a);
-    user_two = User.find(b);
+    user_two = User.find(2);
     personality_one = Personality.where(user_id: user_one.id).last
     personality_two = Personality.where(user_id: user_two.id).last
 
