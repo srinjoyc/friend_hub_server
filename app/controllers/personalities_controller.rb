@@ -11,7 +11,7 @@ class PersonalitiesController < ApplicationController
 
   # GET /personalities/1
   def show
-    @personality = Personality.where(id: params[:id]).last
+    @personality = Personality.find(params[:id])
     render json: @personality
   end
 
@@ -42,20 +42,32 @@ class PersonalitiesController < ApplicationController
 
   def match
     a = params[:user_id]
-    user_one = User.find(a);
-    user_two = User.find(2);
+    user_one = User.find(a)
+    users = User.all
+    best_match_score = 0
+    best_match_id = 0
     personality_one = Personality.where(user_id: user_one.id).last
-    personality_two = Personality.where(user_id: user_two.id).last
 
-    match_a = (personality_one.attr_a - personality_two.attr_a).abs
-    match_b = (personality_one.attr_b - personality_two.attr_b).abs
-    match_c = (personality_one.attr_c - personality_two.attr_c).abs
-    match_d = (personality_one.attr_d - personality_two.attr_d).abs
-    match_e = (personality_one.attr_e - personality_two.attr_e).abs
+    users.each do |user|
+      personality_two = Personality.where(user_id: user.id).last
 
-    match_score = match_a + match_b + match_c + match_d + match_e
+        match_a = (personality_one.attr_a - personality_two.attr_a).abs
+        match_b = (personality_one.attr_b - personality_two.attr_b).abs
+        match_c = (personality_one.attr_c - personality_two.attr_c).abs
+        match_d = (personality_one.attr_d - personality_two.attr_d).abs
+        match_e = (personality_one.attr_e - personality_two.attr_e).abs
 
-    render json: match_score.to_json
+      match_score = match_a + match_b + match_c + match_d + match_e
+      
+      if best_match_score < match_score
+        best_match_score = match_score
+        best_match_id = user.id
+      end 
+
+    end 
+
+
+    render json: best_match_id.to_json
 
   end 
 
