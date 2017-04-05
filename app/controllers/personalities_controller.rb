@@ -11,7 +11,7 @@ class PersonalitiesController < ApplicationController
 
   # GET /personalities/1
   def show
-    @personality = Personality.find(params[:id])
+    @personality = User.find(params[:id]).personality
     render json: @personality
   end
 
