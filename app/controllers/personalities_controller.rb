@@ -42,6 +42,7 @@ class PersonalitiesController < ApplicationController
 
   def match
     a = params[:user_id]
+    b = params[:hub_id]
     puts "MATCH: --------------- #{params[:user_id]}"
     # user_one = User.find(a)
     # users = User.all
