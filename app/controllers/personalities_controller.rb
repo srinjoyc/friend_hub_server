@@ -67,7 +67,7 @@ class PersonalitiesController < ApplicationController
 
     #end 
 
-    best_match_id = 2
+    best_match_id = "two"
     render json: best_match_id.to_json
 
   end 
