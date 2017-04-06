@@ -55,7 +55,7 @@ class HubsController < ApplicationController
           total_b += user.personality.attr_b
           total_c += user.personality.attr_c
           total_d += user.personality.attr_d
-          total_e += user.personality.attr_e
+          total_e += 1.1
         end 
       end 
     end 
