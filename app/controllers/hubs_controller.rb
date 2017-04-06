@@ -38,6 +38,34 @@ class HubsController < ApplicationController
     @hub.destroy
   end
 
+  def getHistory
+    @history = History.where(hub_id: params[:hub_id])
+
+    total_a = 0
+    total_b = 0
+    total_c = 0
+    total_d = 0
+
+    total_hash = {}
+
+    @history.each do |item|
+      user = User.find(item.user_id)
+      total_a += user.personality.attr_a
+      total_b += user.personality.attr_b
+      total_c += user.personality.attr_c
+      total_d += user.personality.attr_d
+      total_e += user.personality.attr_e
+    end 
+
+    total_hash["attr_a"] = total_a
+    total_hash["attr_b"] = total_b
+    total_hash["attr_c"] = total_c
+    total_hash["attr_d"] = total_d
+    total_hash["attr_e"] = total_e
+
+    render json: total_hash.to_json
+  end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hub

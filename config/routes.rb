@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :hubs
   resources :users
 
+  get '/hub-history' => 'hub#getHistory'
+
   post '/match' => 'personalities#match'
 
   post '/checkin' => 'users#checkin'

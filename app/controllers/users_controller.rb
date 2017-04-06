@@ -44,14 +44,26 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  def getHistory
+
+  end 
+
   def checkin
     user = User.find(params[:user_id])
+    hub = Hub.find(params[:hub_id])
+
+    h = History.new(user_id: user.id, hub_id: hub.id, is_active: true)
+    h.save!
+
     puts "/CHECKIN user_id -------------------- #{user.id}"
     render json: @user
   end 
 
   def checkout
     user = User.find(params[:user_id])
+    hist = History.where(user_id: user.id).where(is_active: true).first
+    hist.is_active = false
+    hist.save!
     puts "/CHECKOUT user_id -------------------- #{user.id}"
     render json: "200"
   end 
