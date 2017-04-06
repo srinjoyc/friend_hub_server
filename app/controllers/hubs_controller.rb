@@ -48,12 +48,14 @@ class HubsController < ApplicationController
     total_hash = {}
 
     @history.each do |item|
-      user = User.find(item.user_id)
-      total_a += user.personality.attr_a
-      total_b += user.personality.attr_b
-      total_c += user.personality.attr_c
-      total_d += user.personality.attr_d
-      total_e += user.personality.attr_e
+      unless item.nil? 
+        user = User.find(item.user_id)
+        total_a += user.personality.attr_a
+        total_b += user.personality.attr_b
+        total_c += user.personality.attr_c
+        total_d += user.personality.attr_d
+        total_e += user.personality.attr_e
+      end 
     end 
 
     total_hash["attr_a"] = total_a
