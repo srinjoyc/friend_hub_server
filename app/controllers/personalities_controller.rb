@@ -71,11 +71,11 @@ class PersonalitiesController < ApplicationController
 
     #end 
 
-    best_match_id = rand(1..3)
+    best_match_id = rand(1..3).to_s
     while(best_match_id == a)
-      best_match_id = rand(1..3)
+      best_match_id = rand(1..3).to_s
     end 
-    
+
     render json: best_match_id.to_json
 
   end 
