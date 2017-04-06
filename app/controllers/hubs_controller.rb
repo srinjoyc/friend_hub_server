@@ -47,7 +47,7 @@ class HubsController < ApplicationController
 
     total_hash = {}
 
-    @history.each do |item|
+    history.each do |item|
       unless item.nil? 
         user = User.find(item.user_id)
         total_a += user.personality.attr_a
