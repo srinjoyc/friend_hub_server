@@ -39,8 +39,7 @@ class HubsController < ApplicationController
   end
 
   def getHistory
-    @history = History.where(hub_id: params[:hub_id])
-
+    history = History.where(hub_id: params[:hub_id])
     total_a = 0
     total_b = 0
     total_c = 0

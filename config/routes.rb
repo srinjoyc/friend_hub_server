@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :hubs
   resources :users
 
-  post '/hub-history' => 'hub#getHistory'
+  post '/hub-history' => 'hubs#getHistory'
 
   post '/match' => 'personalities#match'
 
