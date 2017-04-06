@@ -44,6 +44,18 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  def checkin
+    user = User.find(params[:user_id])
+    puts "/CHECKIN user_id -------------------- #{user.id}"
+    render json: @user
+  end 
+
+  def checkout
+    user = User.find(params[:user_id])
+    puts "/CHECKOUT user_id -------------------- #{user.id}"
+    render json: "200"
+  end 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

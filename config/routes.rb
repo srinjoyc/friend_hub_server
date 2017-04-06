@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   post '/match' => 'personalities#match'
 
+  post '/checkin' => 'users#checkin'
+  post '/checkout' => 'users#checkout'
+
   post '/login' => 'auth#login'
   root to: 'static#home'
   get '/get-models' => 'application#get_models'
