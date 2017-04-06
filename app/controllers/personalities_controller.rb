@@ -45,6 +45,8 @@ class PersonalitiesController < ApplicationController
     b = params[:hub_id]
     puts "/MATCH user_id: --------------- #{params[:user_id]}"
     puts "MATCH hub_id: --------------- #{params[:hub_id]}"
+
+
     # user_one = User.find(a)
     # users = User.all
     # best_match_score = 0
@@ -69,7 +71,11 @@ class PersonalitiesController < ApplicationController
 
     #end 
 
-    best_match_id = "two"
+    best_match_id = rand(1..3)
+    while(best_match_id == a)
+      best_match_id = rand(1..3)
+    end 
+    
     render json: best_match_id.to_json
 
   end 
